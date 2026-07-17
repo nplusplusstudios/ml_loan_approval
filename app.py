@@ -59,7 +59,7 @@ if st.button("Predict Loan Status"):
     sample_scaled = scaler.transform(sample)
     prediction = model.predict(sample_scaled)[0]
 
-    if prediction == "Y":
+    if prediction == "y":
         st.success("✅ Loan Approved")
     else:
         st.error("❌ Loan Rejected")
