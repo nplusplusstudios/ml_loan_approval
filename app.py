@@ -23,9 +23,9 @@ st.set_page_config(page_title="ML Powered - Loan Approval Prediction", page_icon
 top_banner = Image.open('banner.jpg')
 st.image(top_banner, use_container_width=True)
 
-st.title("Loan Approval Prediction System")
+st.info("Loan Approval Prediction System")
 st.write("Enter applicant details to predict loan approval.")
-st.write("Make sure you fill the fields properly")
+st.warning("Make sure you fill the fields properly")
 
 # Creating the Input fields to capture User Input
 gender = st.selectbox("Gender", ["Female", "Male"])
