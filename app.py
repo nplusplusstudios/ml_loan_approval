@@ -1,17 +1,33 @@
+# MSc in Computer Science
+# Batch        : Feb 2026 Batch
+# Student Name : ZUBAIR MARIKKAR MOHAMED NUZARATH
+# Module       : COM 763 Advanced Machine Learning
+# Assignment   : Part 01 - Portfolio Task
+# Description  : Design, build, evaluate, and demonstrate a
+#                complete machine learning system that solves
+#                a real-world problem
+#                Streamlit Community Cloud Deployment        
 import streamlit as st
 import pandas as pd
 import joblib
+from PIL import Image
 
-# Load model and scaler
+# Loading model and scaler - these were generated after training the model
+# -on given dataset
 model = joblib.load("loan_approval_model.pkl")
 scaler = joblib.load("loan_scaler.pkl")
 
-st.set_page_config(page_title="Loan Approval Prediction", page_icon="🏦")
+st.set_page_config(page_title="ML Powered - Loan Approval Prediction", page_icon="💡")
 
-st.title("🏦 Loan Approval Prediction System")
+# Loading and display banner image
+top_banner = Image.open('banner.jpg')
+st.image(top_banner, use_container_width=True)
+
+st.title("Loan Approval Prediction System")
 st.write("Enter applicant details to predict loan approval.")
+st.write("Make sure you fill the fields properly")
 
-# Input fields
+# Creating the Input fields to capture User Input
 gender = st.selectbox("Gender", ["Female", "Male"])
 married = st.selectbox("Marital Status", ["No", "Yes"])
 dependents = st.selectbox("Dependents", ["0", "1", "2", "3+"])
@@ -26,7 +42,7 @@ loan_amount_term = st.number_input("Loan Amount Term", min_value=0.0, value=360.
 credit_history = st.selectbox("Credit History", [0, 1])
 property_area = st.selectbox("Property Area", ["Rural", "Semiurban", "Urban"])
 
-# Encode inputs
+# Encoding inputs done below
 gender = 1 if gender == "Male" else 0
 married = 1 if married == "Yes" else 0
 
@@ -39,7 +55,7 @@ self_employed = 1 if self_employed == "Yes" else 0
 area_map = {"Rural": 0, "Semiurban": 1, "Urban": 2}
 property_area = area_map[property_area]
 
-# Prediction button
+# Prediction button to trigger the Prediction process
 if st.button("Predict Loan Status"):
 
     sample = pd.DataFrame({
@@ -60,6 +76,9 @@ if st.button("Predict Loan Status"):
     prediction = model.predict(sample_scaled)[0]
 
     if prediction == "y":
-        st.success("✅ Loan Approved")
+        st.success("Loan Approved - 😊 Congratulations")
     else:
-        st.error("❌ Loan Rejected")
+        st.error("Loan Rejected - 😢 Sorry")
+
+    
+    st.write("Web Solution Developed by Mohamed Nuzarath - s25026165 | Wrexham University | Bacth 2026")
