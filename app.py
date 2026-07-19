@@ -23,7 +23,7 @@ st.set_page_config(page_title="ML Powered - Loan Approval Prediction", page_icon
 top_banner = Image.open('banner.jpg')
 st.image(top_banner, use_container_width=True)
 
-st.write('<span style="color:blue;">Loan Approval Prediction System</span>', unsafe_allow_html=True)
+st.header('<span style="color:blue;">Loan Approval Prediction System</span>', unsafe_allow_html=True)
 st.write("Enter applicant details to predict loan approval.")
 st.write('<span style="color:red;">Make sure you fill the fields properly</span>', unsafe_allow_html=True)
 
