@@ -81,4 +81,4 @@ if st.button("Predict Loan Status"):
         st.error("Loan Rejected - 😢 Sorry")
 
     
-    st.write("Web Solution Developed by Mohamed Nuzarath - s25026165 | Wrexham University | Bacth 2026")
+st.write("Web Solution Developed by Mohamed Nuzarath - s25026165 | Wrexham University | Bacth 2026")
